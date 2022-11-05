@@ -1,0 +1,49 @@
+version: '3'
+
+networks:
+  itticketnet:
+
+services:
+  mariadb:
+    image: mariadb:latest
+    ports: 
+      - "3306:3306"
+    expose:
+      - 3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=adminsql123q
+      - MARIADB_USER=root
+    volumes:
+      - "./files/mysqldb:/var/lib/mysql"
+    networks:
+      - itticketnet
+    healthcheck:
+      test: "mysqladmin ping -h localhost --user=$$MARIADB_USER --password=$$MARIADB_ROOT_PASSWORD"
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+  itticket:
+    build: .
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    volumes:
+      - "./ITticket/:/ITticket"
+    networks:
+      - itticketnet
+    environment:
+      - MARIADB_ROOT_PASSWORD=adminsql123q
+      - MARIADB_USER=root
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    
+    links:
+      - mariadb
+   
+    
+
+    
