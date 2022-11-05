@@ -1,3 +1,3 @@
 # papsi_lab
-run django application__
-docker-compose up -d__
+run django application <br />
+docker-compose up -d <br />
