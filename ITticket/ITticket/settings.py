@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'ITticket',
         'USER': 'root',
         'PASSWORD': 'adminsql123q',
-        'HOST': 'papsi_lab-mariadb-1',
+        'HOST': 'papsi_lab_mariadb_1',
         'PORT': '3306',
     }
 }
