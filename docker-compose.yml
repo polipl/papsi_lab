@@ -6,6 +6,7 @@ networks:
 services:
   mariadb:
     image: mariadb:latest
+    container_name: papsi_lab_mariadb_1
     ports: 
       - "3306:3306"
     expose:
@@ -26,6 +27,7 @@ services:
 
   itticket:
     build: .
+    container_name: papsi_lab_itticket_1
     ports:
       - "8000:8000"
     expose:
