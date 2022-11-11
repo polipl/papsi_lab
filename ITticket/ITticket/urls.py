@@ -18,6 +18,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('', include('MAINPAGE.urls')),
+    path('dictionary/',include('DICTIONARY.urls',namespace='DICTIONARY')),
+    path('servicedesk/', include('SERVICEDESK.urls', namespace='SERVICEDESK')),
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
