@@ -1,8 +1,11 @@
+from email.headerregistry import Group
+from unicodedata import name
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse,HttpResponseRedirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User,Group
 
 # Create your views here.
 
@@ -15,4 +18,8 @@ class MainPage(View):
         :template:`MAINPAGE/index.html`
     """
     def get(self, request, *args, **kwargs):
-        return render(request,'MAINPAGE/index.html')
+        userinit = False
+        if request.user.groups.filter(name="IT"):
+            userinit = True
+        context = {'userinit':userinit}
+        return render(request,'MAINPAGE/index.html',context)
