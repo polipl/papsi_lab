@@ -30,10 +30,16 @@ services:
     container_name: papsi_lab_itticket_1
     ports:
       - "8000:8000"
+      - "80:80"
+      - "443:443"
     expose:
       - 8000
+      - 80
+      - 443
     volumes:
       - "./ITticket/:/ITticket"
+      - "./files/conf/supervisor:/etc/supervisor"
+      - "./files/conf/nginx:/etc/nginx"
     networks:
       - itticketnet
     environment:
