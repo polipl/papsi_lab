@@ -14,6 +14,7 @@ class Tickets(models.Model):
     end_date = models.DateTimeField(null=True,blank=True)
     priority = models.ForeignKey(TicketsPriority,on_delete=models.CASCADE,null=True,blank=True)
     status = models.ForeignKey(TicketsStatus,on_delete=models.CASCADE,null=True,blank=True)
+    ticket_type = models.ForeignKey(TicketTypes,on_delete=models.CASCADE,null=True,blank=True)
 
     def __str__(sefl):
         return '%s' % (sefl.short_description)
