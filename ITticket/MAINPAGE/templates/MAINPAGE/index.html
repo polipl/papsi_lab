@@ -1,6 +1,40 @@
 {% extends "MAINPAGE/base.html" %}
 
 {% block content %}
-        index 123
-        <button type="button" class="btn btn-primary">Primary</button>
+
+<div class="d-flex flex-column mx-4 my-4">
+        <div class="col-4">
+        <div class="card my-4">
+                <div class="card-header">
+                        Statystyki zgłoszeń
+                </div>
+                <div class="card-body">
+                        <table class="table table-bordered">
+                                <tr><td>Wszystkie</td><td>{{ reports.ticket_stats_all }}</td></tr>
+                                <tr><td>Otwarte</td><td>{{ reports.ticket_stats_active }}</td></tr>
+                                <tr><td>Zakończone</td><td>{{ reports.ticket_stats_closed }}</td></tr>
+                                <tr><td>Nowe</td><td>{{ reports.ticket_stats_new }}</td></tr>
+                        </table>
+                </div>
+        </div>
+
+
+        <div class="card my-4">
+                <div class="card-header">
+                        Statystyki zgłoszeń dla Ciebie
+                </div>
+                <div class="card-body">
+                        <table class="table table-bordered">
+                                <tr><td>Wszystkie</td><td>{{ reports.ticket_stats_all_user }}</td></tr>
+                                <tr><td>Otwarte</td><td>{{ reports.ticket_stats_active_user }}</td></tr>
+                                <tr><td>Zakończone</td><td>{{ reports.ticket_stats_closed_user }}</td></tr>
+                                <tr><td>Nowe</td><td>{{ reports.ticket_stats_new_user }}</td></tr>
+                        </table>
+                </div>
+        </div>
+
+        </div>
+</div>
+  
+
 {% endblock %}
