@@ -35,6 +35,19 @@ class TicketsList(View):
         return render(request, 'SERVICEDESK/tickets_list.html', context)
 
 @method_decorator(login_required, name='dispatch')
+class TicketsAssignedList(View):
+    """
+    Widok wyświetla wszystkie tickety przypisane do zalogowanego użytkownika
+
+    :template:`SERVICEDESK/tickets_list.html`
+    """
+    def get(self, request, *args, **kwargs):
+        tickets = Tickets.objects.filter(assigned_user=request.user).order_by('-pk')
+        context = { 'tickets': tickets }
+        return render(request, 'SERVICEDESK/tickets_list.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
 class TicketDetails(View):
     """
     Widok wyświetla ticket o numere ID
