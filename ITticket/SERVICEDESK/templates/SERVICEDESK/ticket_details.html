@@ -4,98 +4,80 @@
 {% block content %}
 <div class="container">
     <div class="row py-2">
-        <div class="card p-0">
+
+        <div class="card p-0 mt-4">
             <div class="card-header">
                 <div class="d-flex">
-                    <div class="p-2 text-start flex-fill">
-                        Zgłoszenie nr {{ ticket.pk }}
-                    </div>
-                    <div class="p-2 text-center flex-fill">
-                        Utworzone przez: {{ticket.created_user.first_name}} {{ticket.created_user.last_name}}
-                    </div>
-                    <div class="p-2 text-end flex-fill">
-                        data: {{ticket.create_date|date:"d.m.Y H:i:s"}}
-                    </div>
+                    <div class="p-2 text-start flex-fill">Zgłoszenie nr {{ ticket.pk }}</div>
+                    <div class="p-2 text-center flex-fill">Utworzone przez: {{ticket.created_user.first_name}}
+                        {{ticket.created_user.last_name}}</div>
+                    <div class="p-2 text-end flex-fill">data: {{ticket.create_date|date:"d.m.Y H:i:s"}}</div>
                 </div>
-                 
             </div>
+
             <div class="card-body">
                 <h5 class="card-title">{{ ticket.short_description }}</h5>
                 <p class="card-text">{{ ticket.description }}</p>
-
             </div>
             {% if ticket.priority.priority_name == "Wysoki" %}
-                <div class="card-footer bg-danger">
-            {% elif ticket.priority.priority_name == "Średni" %}
+            <div class="card-footer bg-danger">
+                {% elif ticket.priority.priority_name == "Średni" %}
                 <div class="card-footer bg-warning">
-            {% elif ticket.priority.priority_name == "Niski" %}
-                <div class="card-footer bg-primary">
-            {% endif %}
+                    {% elif ticket.priority.priority_name == "Niski" %}
+                    <div class="card-footer bg-primary">
+                        {% endif %}
 
-                <div class="d-flex">
-                    <div class="p-2 ">
-                        Status: {{ ticket.status.status_name }}
+                        <div class="d-flex">
+                            <div class="p-2 ">Status: {{ ticket.status.status_name }}</div>
+                            <div class="p-2 ">Priorytet: {{ ticket.priority.priority_name }}</div>
+                            <div class="p-2"><a class="btn btn-primary btn-sm"
+                                    href="{% url 'SERVICEDESK:ticket_edit' ticket.pk %}" role="button">Edytuj ticket</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="p-2 ">
-                        Priorytet: {{ ticket.priority.priority_name }}
-                    </div>
-
-                    <div class="p-2">
-                        <a class="btn btn-primary btn-sm" href="{% url 'SERVICEDESK:ticket_edit' ticket.pk %}" role="button">Edytuj ticket</a>
-                    </div>
-
                 </div>
-              </div>
-        </div>
-    </div>
-    {% if ticket.status.status_name != "Zamknięty" %}
 
-    <div class="card mb-4 mt-1">
+                    {% if ticket.status.status_name != "Zamknięty" %}
 
-        <div class="card-header bg-success">Dodaj komentarz</div>
-
-        <div class="card-body">
-            <div class="card-text">
-                <div class="form-group">
-                    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-                      {{ form }}
-                      <input type="submit" class="btn btn-success" value="Zapisz">
-                    </form>
-                  </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    {% if ticket_history %}
-        <div class="card">
-            <div class="card-body">
-
-                {% for comment in ticket_history %}
-                <div class="row py-2">
-                    <div class="card p-0">
-                        <div class="card-header">
-                            <div class="d-flex">
-                                <div class="p-2 text-start flex-fill">
-                                    komentarz utworzony przez: {{ comment.created_user.first_name }} {{ comment.created_user.last_name }}
-                                </div>
-                                <div class="p-2 text-end flex-fill">
-                                    data: {{ comment.create_date|date:"d.m.Y H:i:s" }}
+                    <div class="card my-4 p-0">
+                        <div class="card-header bg-success">Dodaj komentarz</div>
+                        <div class="card-body">
+                            <div class="card-text">
+                                <div class="form-group">
+                                    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                                        {{ form }}
+                                        <input type="submit" class="btn btn-success" value="Zapisz">
+                                    </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    {% endif %}
+
+                    {% if ticket_history %}
+                    <div class="card">
                         <div class="card-body">
-                            {{ comment.comment }}
+                            {% for comment in ticket_history %}
+                            <div class="row py-2">
+                                <div class="card p-0">
+                                    <div class="card-header">
+                                        <div class="d-flex">
+                                            <div class="p-2 text-start flex-fill">komentarz utworzony przez: {{ comment.created_user.first_name }} {{ comment.created_user.last_name }}
+                                            </div>
+                                            <div class="p-2 text-end flex-fill">data: {{ comment.create_date|date:"d.m.Y H:i:s" }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">{{ comment.comment }}</div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
                         </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endif %}
 
+
+                
             </div>
-        </div>
-    {% endif %}
 
-
-</div>
-
-{% endblock %}
+            {% endblock %}

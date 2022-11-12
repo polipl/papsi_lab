@@ -2,56 +2,62 @@
 
 
 {% block content %}
-<div class="row py-2">
-    <h2>Lista zgłoszeń</h2>
-</div>
+<div class="container-fluid">
+    <div class="row py-2">
+        <div class="col">
+            <h2>Lista zgłoszeń</h2>
+        </div>
+    </div>
 
-<div class="container">
-    <table class="table table-sm table-striped table-hover small table-bordered table-responsive ">
-        <thead>
-            <tr>
-                <th>Numer</th>
-                <th>Typ</th>
-                <th>Zgłaszający</th>
-                <th>Przypisany</th>
-                <th>Opis</th>
-                <th>Data zgłoszenia</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            {% for ticket in tickets %}
-                <tr>
-                    <td>
-                        <div class="d-grid gap-1">
-                        {% if ticket.priority.priority_name == "Wysoki" %}
-                            <a href="{% url 'SERVICEDESK:ticket_details' ticket.pk %}" class="btn btn-danger btn-sm p-0" type="button">{{ ticket.pk }}</a>
-                        {% elif ticket.priority.priority_name == "Średni" %}
-                            <a href="{% url 'SERVICEDESK:ticket_details' ticket.pk %}" class="btn btn-warning btn-sm p-0" type="button">{{ ticket.pk }}</a>
-                        {% elif ticket.priority.priority_name == "Niski" %}
-                            <a href="{% url 'SERVICEDESK:ticket_details' ticket.pk %}" class="btn btn-primary btn-sm p-0" type="button">{{ ticket.pk }}</a>
-                        {% endif %}
-                        
-                        </div>
-                    </td>
-                    <td>{{ ticket.ticket_type.type_name }}</td>
-                    <td>{{ ticket.created_user.first_name }} {{ ticket.created_user.last_name }}</td>
-                    <td>{{ ticket.assigned_user.first_name }} {{ ticket.assigned_user.last_name }}</td>
-                    <td>{{ ticket.description }}</td>
-                    <td>{{ ticket.create_date|date:"d.m.Y H:i:s" }}</td>
-                    {% if ticket.status.pk == 1 %}
-                        <td><span class="badge text-bg-success">{{ ticket.status }}</span></td>
-                    {% elif ticket.status.pk == 2 %}
-                        <td><span class="badge text-bg-warning">{{ ticket.status }}</span></td>
-                    {% elif ticket.status.pk == 3 %}
-                        <td><span class="badge text-bg-info">{{ ticket.status }}</span></td>
-                    {% elif ticket.status.pk == 4 %}
-                        <td><span class="badge text-bg-dark">{{ ticket.status }}</span></td>
-                    {% endif %}
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="row py-2">
+        <div class="col">
+            <table class="table table-sm table-striped table-hover small table-bordered table-responsive ">
+                <thead>
+                    <tr>
+                        <th>Numer</th>
+                        <th>Typ</th>
+                        <th>Zgłaszający</th>
+                        <th>Przypisany</th>
+                        <th>Opis</th>
+                        <th>Data zgłoszenia</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for ticket in tickets %}
+                        <tr>
+                            <td>
+                                <div class="d-grid gap-1">
+                                {% if ticket.priority.priority_name == "Wysoki" %}
+                                    <a href="{% url 'SERVICEDESK:ticket_details' ticket.pk %}" class="btn btn-danger btn-sm p-0" type="button">{{ ticket.pk }}</a>
+                                {% elif ticket.priority.priority_name == "Średni" %}
+                                    <a href="{% url 'SERVICEDESK:ticket_details' ticket.pk %}" class="btn btn-warning btn-sm p-0" type="button">{{ ticket.pk }}</a>
+                                {% elif ticket.priority.priority_name == "Niski" %}
+                                    <a href="{% url 'SERVICEDESK:ticket_details' ticket.pk %}" class="btn btn-primary btn-sm p-0" type="button">{{ ticket.pk }}</a>
+                                {% endif %}
+                                
+                                </div>
+                            </td>
+                            <td>{{ ticket.ticket_type.type_name }}</td>
+                            <td>{{ ticket.created_user.first_name }} {{ ticket.created_user.last_name }}</td>
+                            <td>{{ ticket.assigned_user.first_name }} {{ ticket.assigned_user.last_name }}</td>
+                            <td>{{ ticket.description }}</td>
+                            <td>{{ ticket.create_date|date:"d.m.Y H:i:s" }}</td>
+                            {% if ticket.status.pk == 1 %}
+                                <td><span class="badge text-bg-success">{{ ticket.status }}</span></td>
+                            {% elif ticket.status.pk == 2 %}
+                                <td><span class="badge text-bg-warning">{{ ticket.status }}</span></td>
+                            {% elif ticket.status.pk == 3 %}
+                                <td><span class="badge text-bg-info">{{ ticket.status }}</span></td>
+                            {% elif ticket.status.pk == 4 %}
+                                <td><span class="badge text-bg-dark">{{ ticket.status }}</span></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
