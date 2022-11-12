@@ -32,6 +32,7 @@ class TicketsPriority(models.Model):
 class TicketsStatus(models.Model):
     """
     Model słownik - definicja statusów ticketów
+
     """
     status_name = models.CharField(max_length=40,null=True,blank=True)
    
