@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 from DICTIONARY.models import TicketsPriority, TicketsStatus, TicketTypes
 # Create your models here.
+
 class Tickets(models.Model):
     """
     Model baza ticketów
@@ -10,7 +11,7 @@ class Tickets(models.Model):
     description = models.TextField(null=True,blank=True)
     created_user = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True, related_name='created_user')
     assigned_user = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True, related_name='assigned_user')
-    create_date = models.DateTimeField(auto_now=True)
+    create_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(null=True,blank=True)
     priority = models.ForeignKey(TicketsPriority,on_delete=models.CASCADE,null=True,blank=True)
     status = models.ForeignKey(TicketsStatus,on_delete=models.CASCADE,null=True,blank=True)
@@ -29,7 +30,7 @@ class TicketsHistory(models.Model):
     """
     ticket = models.ForeignKey(Tickets, on_delete=models.CASCADE,null=True,blank=True)
     comment = models.TextField(null=True,blank=True)
-    create_date = models.DateTimeField(auto_now=True)
+    create_date = models.DateTimeField(auto_now_add=True)
     created_user = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True, related_name='created_user_ticket_history')
 
 
