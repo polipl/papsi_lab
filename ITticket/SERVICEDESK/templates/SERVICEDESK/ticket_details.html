@@ -1,5 +1,5 @@
 {% extends 'MAINPAGE/base.html' %}
-
+{% load has_group %}
 
 {% block content %}
 <div class="container">
@@ -30,9 +30,15 @@
                         <div class="d-flex">
                             <div class="p-2 ">Status: {{ ticket.status.status_name }}</div>
                             <div class="p-2 ">Priorytet: {{ ticket.priority.priority_name }}</div>
+                            {% if user.is_authenticated and request.user|has_group:"IT" %}
                             <div class="p-2"><a class="btn btn-primary btn-sm"
                                     href="{% url 'SERVICEDESK:ticket_edit' ticket.pk %}" role="button">Edytuj ticket</a>
                             </div>
+                            {% elif user.is_authenticated and request.user|has_group:"USERS" %}
+                            <div class="p-2"><a class="btn btn-primary btn-sm"
+                                    href="{% url 'SERVICEDESK:ticket_edit_by_user' ticket.pk %}" role="button">Edytuj ticket</a>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
