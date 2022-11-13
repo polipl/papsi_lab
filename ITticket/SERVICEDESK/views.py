@@ -20,6 +20,8 @@ class ServiceDeskIndex(View):
     :template:`SERVICEDESK/index.html`
     """
     def get(self, request, *args, **kwargs):
+        if request.user.groups.filter(name="USERS"):
+            return redirect('SERVICEDESK:ticket_created_by_user_list')         
         return render(request,'SERVICEDESK/index.html')
 
 @method_decorator(login_required, name='dispatch')

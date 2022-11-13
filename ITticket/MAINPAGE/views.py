@@ -1,6 +1,6 @@
 from email.headerregistry import Group
 from unicodedata import name
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse,HttpResponseRedirect
 from django.utils.decorators import method_decorator
@@ -18,9 +18,8 @@ class MainPage(View):
         :template:`MAINPAGE/index.html`
     """
     def get(self, request, *args, **kwargs):
-        userinit = False
-        if request.user.groups.filter(name="IT"):
-            userinit = True
+        if request.user.groups.filter(name="USERS"):
+            return redirect('SERVICEDESK:ticket_created_by_user_list') 
         ticket_stats_all = Tickets.objects.all().count()
         ticket_stats_active = Tickets.objects.all().exclude(status__status_name='Zamknięty').count()
         ticket_stats_closed = Tickets.objects.filter(status__status_name='Zamknięty').count()
@@ -40,6 +39,5 @@ class MainPage(View):
                     'ticket_stats_active_user':ticket_stats_active_user,
                     'ticket_stats_closed_user':ticket_stats_closed_user,
                     'ticket_stats_new_user':ticket_stats_new_user,}
-        context = {'userinit':userinit,
-                    'reports':reports}
+        context = { 'reports':reports }
         return render(request,'MAINPAGE/index.html',context)

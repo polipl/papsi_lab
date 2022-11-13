@@ -22,9 +22,15 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" href="#">IT Ticket</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if user.is_authenticated and request.user|has_group:"IT" %}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'MAINPAGE:index' %}">Home</a>
           </li>
+          {% elif user.is_authenticated and request.user|has_group:"USERS" %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'SERVICEDESK:ticket_created_by_user_list' %}">Home</a>
+          </li>
+          {% endif %}
           {% if user.is_authenticated and request.user|has_group:"IT" %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'SERVICEDESK:ticket_list' %}">Lista zgłoszeń</a>
