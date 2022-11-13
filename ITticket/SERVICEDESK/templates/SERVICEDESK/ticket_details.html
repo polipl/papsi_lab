@@ -29,6 +29,9 @@
 
                         <div class="d-flex">
                             <div class="p-2 ">Status: {{ ticket.status.status_name }}</div>
+                            {% if ticket.status.status_name == "Zamknięty"%}
+                            <div class="p-2 ">data: {{ ticket.end_date }}</div>
+                            {% endif %}
                             <div class="p-2 ">Priorytet: {{ ticket.priority.priority_name }}</div>
                             {% if user.is_authenticated and request.user|has_group:"IT" %}
                             <div class="p-2"><a class="btn btn-primary btn-sm"

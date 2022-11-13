@@ -1,5 +1,8 @@
 from audioop import reverse
+from datetime import datetime
+from django.utils import timezone
 from multiprocessing import context
+from time import timezone
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
@@ -166,6 +169,10 @@ class EditTicket(View):
         form = EditTicketForm(request.POST, instance=ticket)
         if form.is_valid():
             post = form.save(commit=False)
+            if post.status.status_name == "Zamknięty":
+                post.end_date = datetime.now()
+            else:
+                post.end_date = None
             post.save()
         return redirect('SERVICEDESK:ticket_details',ticket_id)
 
@@ -187,5 +194,9 @@ class EditTicketByUser(View):
         form = EditTicketEndUserForm(request.POST, instance=ticket)
         if form.is_valid():
             post = form.save(commit=False)
+            if post.status.status_name == "Zamknięty":
+                post.end_date = datetime.now()
+            else:
+                post.end_date = None
             post.save()
         return redirect('SERVICEDESK:ticket_details',ticket_id)
