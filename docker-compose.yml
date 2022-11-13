@@ -26,7 +26,8 @@ services:
       start_period: 10s
 
   itticket:
-    build: .
+    #build: .
+    image: polipl/itticket:latest
     container_name: papsi_lab_itticket_1
     ports:
       - "8000:8000"
