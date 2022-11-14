@@ -77,6 +77,8 @@ class TicketDetails(View):
     """
     def get(self, request, ticket_id ,*args, **kwargs):
         ticket = get_object_or_404(Tickets,pk=ticket_id)
+        if (ticket.created_user != request.user) and request.user.groups.filter(name="USERS"):
+            return redirect('SERVICEDESK:ticket_created_by_user_list')
         ticket_history = TicketsHistory.objects.filter(ticket=ticket_id).order_by('-pk')
         form = CreateTicketHistoryForm()
         context = { 'ticket': ticket,
@@ -86,6 +88,8 @@ class TicketDetails(View):
     
     def post(self, request, ticket_id, *args, **kwargs):
         ticket = get_object_or_404(Tickets,pk=ticket_id)
+        if (ticket.created_user != request.user) and request.user.groups.filter(name="USERS"):
+            return redirect('SERVICEDESK:ticket_created_by_user_list')
         ticket_history = TicketsHistory.objects.filter(ticket=ticket_id).order_by('-pk')
         form = CreateTicketHistoryForm(request.POST)
         if form.is_valid():
@@ -156,7 +160,7 @@ class EditTicket(View):
     """
     def get(self, request, ticket_id, *args, **kwargs):
         ticket = get_object_or_404(Tickets,pk=ticket_id)
-        if request.user.groups.filter(name="USERS"):
+        if (ticket.created_user != request.user) and request.user.groups.filter(name="USERS"):
             return redirect('SERVICEDESK:ticket_edit_by_user') 
         form = EditTicketForm(instance=ticket)
         context = { 'form' : form}
@@ -164,7 +168,7 @@ class EditTicket(View):
 
     def post(self, request, ticket_id, *args, **kwargs):
         ticket = get_object_or_404(Tickets,pk=ticket_id)
-        if request.user.groups.filter(name="USERS"):
+        if (ticket.created_user != request.user) and request.user.groups.filter(name="USERS"):
             return redirect('SERVICEDESK:ticket_edit_by_user') 
         form = EditTicketForm(request.POST, instance=ticket)
         if form.is_valid():
@@ -185,12 +189,16 @@ class EditTicketByUser(View):
     """
     def get(self, request, ticket_id, *args, **kwargs):
         ticket = get_object_or_404(Tickets,pk=ticket_id)
+        if (ticket.created_user != request.user) and request.user.groups.filter(name="USERS"):
+            return redirect('SERVICEDESK:ticket_created_by_user_list')                 
         form = EditTicketEndUserForm(instance=ticket)
         context = { 'form' : form}
         return render(request, 'SERVICEDESK/edit_ticket.html', context)
 
     def post(self, request, ticket_id, *args, **kwargs):
         ticket = get_object_or_404(Tickets,pk=ticket_id)
+        if (ticket.created_user != request.user) and request.user.groups.filter(name="USERS"):
+            return redirect('SERVICEDESK:ticket_created_by_user_list')                 
         form = EditTicketEndUserForm(request.POST, instance=ticket)
         if form.is_valid():
             post = form.save(commit=False)
