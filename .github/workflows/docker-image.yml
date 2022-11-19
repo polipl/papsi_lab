@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  cd:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     -
@@ -27,3 +27,7 @@ jobs:
     - 
       name: Push image to dockerhub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+    -
+      name: Docker hub logout
+      run: docker logout
+
