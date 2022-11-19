@@ -15,6 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework import routers, serializers, viewsets
+from SERVICEDESK import apiview
+
+router = routers.DefaultRouter()
+router.register(r'users', apiview.UserViewSet)
+router.register(r'groups', apiview.GroupViewSet)
+router.register(r'ticket_type', apiview.TicketTypesViewSet)
+router.register(r'tickets_priority', apiview.TicketsPriorityViewSet)
+router.register(r'tickets', apiview.TicketsViewSet)
 
 urlpatterns = [
     path('', include('MAINPAGE.urls')),
@@ -23,5 +32,7 @@ urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('api/v1/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     
 ]
