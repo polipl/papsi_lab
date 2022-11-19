@@ -3,6 +3,7 @@ from rest_framework import serializers
 from SERVICEDESK.models import Tickets
 from DICTIONARY.models import TicketsStatus, TicketTypes, TicketsPriority
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -26,11 +27,11 @@ class TicketsPrioritySerializer(serializers.ModelSerializer):
 
 class TicketsSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
+        request = self.context.get("request")
         tickets = Tickets(
             short_description = validated_data['short_description'],
             description = validated_data['description'],
-            created_user = validated_data['created_user'],
-            assigned_user = validated_data['assigned_user'],
+            created_user = request.user,
             priority = validated_data['priority'],
             ticket_type = validated_data['ticket_type'],
             status = TicketsStatus.objects.get(pk=1)
@@ -40,4 +41,4 @@ class TicketsSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = Tickets
-        fields = ['short_description', 'description', 'created_user', 'assigned_user', 'priority', 'ticket_type']
+        fields = ['short_description', 'description', 'priority', 'ticket_type']
