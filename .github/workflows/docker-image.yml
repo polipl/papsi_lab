@@ -23,7 +23,7 @@ jobs:
       run: docker build -t itticket .
     - 
       name: Tags
-      run: docker tab itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+      run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
     - 
       name: Push image to dockerhub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
