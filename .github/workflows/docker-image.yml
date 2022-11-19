@@ -6,16 +6,12 @@ on:
 
 
 jobs:
-
-  buildx:
-
+  cd:
     runs-on: ubuntu-latest
-
     steps:
     -
       name: Checkout
       uses: actions/checkout@v3
-      
     -
       name: Login to Docker Hub
       uses: docker/login-action@v2
@@ -23,18 +19,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     -
-      name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
-
-    -
-      name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-      
-    -
-      name: Build and push
-      uses: docker/build-push-action@v3
-      with:
-        context: .
-        platforms: linux/arm64/v8,linux/amd64
-        push: true
-        tags: polipl/itticket:latest
+      name: Build docker image
+      run: docker build -t itticket .
+    - 
+      name: Tags
+      run: docker tab itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+    - 
+      name: Push image to dockerhub
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
