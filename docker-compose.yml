@@ -40,7 +40,7 @@ services:
     volumes:
       - "./ITticket/:/ITticket"
       - "./files/conf/supervisor:/etc/supervisor"
-      - "./files/conf/nginx:/etc/nginx"
+      #- "./files/conf/nginx:/etc/nginx"
     networks:
       - itticketnet
     environment:

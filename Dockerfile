@@ -6,7 +6,8 @@ RUN ["apt-get", "-y", "install","libmariadb-dev", "gcc", "nginx", "supervisor", 
 RUN ["pip", "install", "-r", "/requirements.txt"]
 COPY ./ITticket /ITticket
 COPY ./files/conf/supervisor /etc/supervisor
-COPY ./files/conf/nginx /etc/nginx
+#COPY ./files/conf/nginx /etc/nginx
+COPY ./files/conf/nginx/sites-available/default /etc/nginx/sites-available/default
 EXPOSE 8000 80 443
 WORKDIR "/ITticket"
 #ENTRYPOINT ["python","manage.py","runserver","0.0.0.0:8000" ]
