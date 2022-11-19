@@ -12,6 +12,7 @@ class TicketsViewSet(viewsets.ModelViewSet):
     queryset = Tickets.objects.all()
     serializer_class = TicketsSerializer
     permission_classes = [permissions.IsAuthenticated]
+    http_method_names = ['get', 'post', 'head']
 
 class TicketTypesViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -20,7 +21,7 @@ class TicketTypesViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = TicketTypes.objects.all()
     serializer_class = TicketTypesSerializer
     permission_classes = [permissions.IsAuthenticated]
-
+    http_method_names = ['get', 'head']
 class TicketsPriorityViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows tickets to be viewed.
@@ -28,7 +29,7 @@ class TicketsPriorityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = TicketsPriority.objects.all()
     serializer_class = TicketsPrioritySerializer
     permission_classes = [permissions.IsAuthenticated]
-
+    http_method_names = ['get', 'head']
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed.
@@ -36,8 +37,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-
+    http_method_names = ['get', 'head']
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows groups to be viewed.
@@ -45,3 +45,4 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+    http_method_names = ['get', 'head']
