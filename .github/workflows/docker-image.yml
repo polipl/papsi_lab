@@ -17,6 +17,9 @@ jobs:
       with: 
         python-version: '3.10'
     - 
+      name: Install gcc
+      run: apt-get -y install gcc
+    - 
       name: Install requirements
       run: pip install -r requirements.txt
       working-directory: ITticket
@@ -48,4 +51,3 @@ jobs:
     -
       name: Docker hub logout
       run: docker logout
-
