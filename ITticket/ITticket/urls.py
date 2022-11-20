@@ -14,25 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from rest_framework import routers, serializers, viewsets
+from django.urls import path, include
+from rest_framework import routers
 from SERVICEDESK import apiview
 
 router = routers.DefaultRouter()
-router.register(r'users', apiview.UserViewSet)
-router.register(r'groups', apiview.GroupViewSet)
-router.register(r'ticket_type', apiview.TicketTypesViewSet)
-router.register(r'tickets_priority', apiview.TicketsPriorityViewSet)
-router.register(r'tickets', apiview.TicketsViewSet)
+router.register(r"users", apiview.UserViewSet)
+router.register(r"groups", apiview.GroupViewSet)
+router.register(r"ticket_type", apiview.TicketTypesViewSet)
+router.register(r"tickets_priority", apiview.TicketsPriorityViewSet)
+router.register(r"tickets", apiview.TicketsViewSet)
 
 urlpatterns = [
-    path('', include('MAINPAGE.urls')),
-    path('dictionary/',include('DICTIONARY.urls',namespace='DICTIONARY')),
-    path('servicedesk/', include('SERVICEDESK.urls', namespace='SERVICEDESK')),
-    path('admin/doc/', include('django.contrib.admindocs.urls')),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('api/v1/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    
+    path("", include("MAINPAGE.urls")),
+    path("dictionary/", include("DICTIONARY.urls", namespace="DICTIONARY")),
+    path("servicedesk/", include("SERVICEDESK.urls", namespace="SERVICEDESK")),
+    path("admin/doc/", include("django.contrib.admindocs.urls")),
+    path("admin/", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("api/v1/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]

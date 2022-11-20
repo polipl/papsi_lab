@@ -7,19 +7,26 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='TicketTypes',
+            name="TicketTypes",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('type', models.CharField(blank=True, max_length=20, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("type", models.CharField(blank=True, max_length=20, null=True)),
             ],
             options={
-                'verbose_name': 'Typ Ticketu',
-                'verbose_name_plural': 'Typy Ticketów',
+                "verbose_name": "Typ Ticketu",
+                "verbose_name_plural": "Typy Ticketów",
             },
         ),
     ]

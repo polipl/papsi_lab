@@ -6,22 +6,22 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('DICTIONARY', '0011_ticketshistory_created_user'),
+        ("DICTIONARY", "0011_ticketshistory_created_user"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='ticketshistory',
-            name='created_user',
+            model_name="ticketshistory",
+            name="created_user",
         ),
         migrations.RemoveField(
-            model_name='ticketshistory',
-            name='ticket',
+            model_name="ticketshistory",
+            name="ticket",
         ),
         migrations.DeleteModel(
-            name='Tickets',
+            name="Tickets",
         ),
         migrations.DeleteModel(
-            name='TicketsHistory',
+            name="TicketsHistory",
         ),
     ]

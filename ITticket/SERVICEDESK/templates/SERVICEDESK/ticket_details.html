@@ -20,12 +20,14 @@
                 <p class="card-text">{{ ticket.description }}</p>
             </div>
             {% if ticket.priority.priority_name == "Wysoki" %}
-            <div class="card-footer bg-danger">
-                {% elif ticket.priority.priority_name == "Średni" %}
+                <div class="card-footer bg-danger">
+            {% elif ticket.priority.priority_name == "Średni" %}
                 <div class="card-footer bg-warning">
-                    {% elif ticket.priority.priority_name == "Niski" %}
-                    <div class="card-footer bg-primary">
-                        {% endif %}
+            {% elif ticket.priority.priority_name == "Niski" %}
+                <div class="card-footer bg-primary">
+            {% else %}
+                <div class="card-footer bg-secondary">
+            {% endif %}
 
                         <div class="d-flex">
                             <div class="p-2 ">Status: {{ ticket.status.status_name }}</div>
