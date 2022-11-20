@@ -14,10 +14,11 @@ jobs:
       uses: actions/checkout@v3
     - 
       name: Install requirements
-      run: pip install -r requirements.txt
+      run: pip install -r /ITticket/requirements.txt
     - 
       name: Check Lint
       run: flake8 . --ignore E501
+      working-directory: ITticket
 
 
   deploy:
