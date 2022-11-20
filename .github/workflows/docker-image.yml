@@ -18,7 +18,7 @@ jobs:
         python-version: '3.10'
     - 
       name: Install gcc
-      run: apt-get install gcc
+      run: apt-get -y install gcc
     - 
       name: Install requirements
       run: pip install -r requirements.txt
