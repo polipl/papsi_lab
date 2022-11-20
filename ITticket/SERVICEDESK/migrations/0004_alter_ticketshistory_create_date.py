@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('SERVICEDESK', '0003_alter_tickets_create_date'),
+        ("SERVICEDESK", "0003_alter_tickets_create_date"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='ticketshistory',
-            name='create_date',
+            model_name="ticketshistory",
+            name="create_date",
             field=models.DateTimeField(auto_now_add=True),
         ),
     ]

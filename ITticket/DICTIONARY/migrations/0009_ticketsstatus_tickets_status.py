@@ -7,24 +7,37 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('DICTIONARY', '0008_alter_tickets_options_ticketshistory'),
+        ("DICTIONARY", "0008_alter_tickets_options_ticketshistory"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='TicketsStatus',
+            name="TicketsStatus",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('status_name', models.CharField(blank=True, max_length=20, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("status_name", models.CharField(blank=True, max_length=20, null=True)),
             ],
             options={
-                'verbose_name': 'Status Ticketu',
-                'verbose_name_plural': 'Statusy Ticketów',
+                "verbose_name": "Status Ticketu",
+                "verbose_name_plural": "Statusy Ticketów",
             },
         ),
         migrations.AddField(
-            model_name='tickets',
-            name='status',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='DICTIONARY.ticketsstatus'),
+            model_name="tickets",
+            name="status",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="DICTIONARY.ticketsstatus",
+            ),
         ),
     ]

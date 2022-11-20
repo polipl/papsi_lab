@@ -10,41 +10,111 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('DICTIONARY', '0012_remove_ticketshistory_created_user_and_more'),
+        ("DICTIONARY", "0012_remove_ticketshistory_created_user_and_more"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Tickets',
+            name="Tickets",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('short_description', models.CharField(blank=True, max_length=255, null=True)),
-                ('description', models.TextField(blank=True, null=True)),
-                ('create_date', models.DateTimeField(auto_now=True)),
-                ('end_date', models.DateTimeField(blank=True, null=True)),
-                ('assigned_user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='assigned_user', to=settings.AUTH_USER_MODEL)),
-                ('created_user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='created_user', to=settings.AUTH_USER_MODEL)),
-                ('priority', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='DICTIONARY.ticketspriority')),
-                ('status', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='DICTIONARY.ticketsstatus')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "short_description",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
+                ("description", models.TextField(blank=True, null=True)),
+                ("create_date", models.DateTimeField(auto_now=True)),
+                ("end_date", models.DateTimeField(blank=True, null=True)),
+                (
+                    "assigned_user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="assigned_user",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "created_user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="created_user",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "priority",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="DICTIONARY.ticketspriority",
+                    ),
+                ),
+                (
+                    "status",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="DICTIONARY.ticketsstatus",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Ticket',
-                'verbose_name_plural': 'Tickety',
+                "verbose_name": "Ticket",
+                "verbose_name_plural": "Tickety",
             },
         ),
         migrations.CreateModel(
-            name='TicketsHistory',
+            name="TicketsHistory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('comment', models.TextField(blank=True, null=True)),
-                ('create_date', models.DateTimeField(auto_now=True)),
-                ('created_user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='created_user_ticket_history', to=settings.AUTH_USER_MODEL)),
-                ('ticket', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='SERVICEDESK.tickets')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("comment", models.TextField(blank=True, null=True)),
+                ("create_date", models.DateTimeField(auto_now=True)),
+                (
+                    "created_user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="created_user_ticket_history",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "ticket",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="SERVICEDESK.tickets",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Historia Ticketu',
-                'verbose_name_plural': 'Historie Ticketów',
+                "verbose_name": "Historia Ticketu",
+                "verbose_name_plural": "Historie Ticketów",
             },
         ),
     ]

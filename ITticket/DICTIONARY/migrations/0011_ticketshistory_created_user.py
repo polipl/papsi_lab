@@ -9,13 +9,19 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('DICTIONARY', '0010_alter_ticketsstatus_status_name'),
+        ("DICTIONARY", "0010_alter_ticketsstatus_status_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='ticketshistory',
-            name='created_user',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='created_user_ticket_history', to=settings.AUTH_USER_MODEL),
+            model_name="ticketshistory",
+            name="created_user",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="created_user_ticket_history",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
