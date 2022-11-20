@@ -3,8 +3,6 @@ name: IT Ticket Docker Image Deploy
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'ITticket/**'
 
 jobs:
   ci:
