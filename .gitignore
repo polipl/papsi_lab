@@ -142,4 +142,5 @@ dmypy.json
 # Built Visual Studio Code Extensions
 *.vsix
 *.code-workspace
+files/postgres/
 
