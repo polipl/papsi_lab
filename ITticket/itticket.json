@@ -1,0 +1,1139 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2022-11-26T17:05:52.279Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "Incydent",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2022-11-26T17:05:56.887Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "Zmiana",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2022-11-26T17:07:40.687Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Nowy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2022-11-26T17:07:51.462Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "2",
+        "object_repr": "W trakcie",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2022-11-26T17:07:59.686Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "Oczekiwanie na odpowiedź",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2022-11-26T17:08:06.066Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "4",
+        "object_repr": "Zamknięty",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2022-11-26T17:08:31.587Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Niski",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2022-11-26T17:08:36.443Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Niski",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2022-11-26T17:08:49.455Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "Średni",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2022-11-26T17:08:58.198Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "Wysoki",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2022-11-26T17:09:32.016Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "IT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2022-11-26T17:09:36.027Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "USERS",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2022-11-26T17:09:48.163Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "1",
+        "object_repr": " ",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2022-11-26T17:10:16.230Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": " ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2022-11-26T17:10:26.434Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Jan Nowak",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2022-11-26T17:13:28.669Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "test",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2022-11-26T17:25:32.655Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "1",
+        "object_repr": "Admin Admin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2022-11-26T17:25:52.179Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": " ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2022-11-26T17:26:02.369Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Tadeusz Nowak",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2022-11-26T17:26:11.765Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": " ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2022-11-26T17:26:22.877Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": "Paweł Małecki",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add Token",
+        "content_type": 7,
+        "codename": "add_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change Token",
+        "content_type": 7,
+        "codename": "change_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete Token",
+        "content_type": 7,
+        "codename": "delete_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view Token",
+        "content_type": 7,
+        "codename": "view_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add token",
+        "content_type": 8,
+        "codename": "add_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change token",
+        "content_type": 8,
+        "codename": "change_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete token",
+        "content_type": 8,
+        "codename": "delete_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view token",
+        "content_type": 8,
+        "codename": "view_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add Typ Ticketu",
+        "content_type": 9,
+        "codename": "add_tickettypes"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change Typ Ticketu",
+        "content_type": 9,
+        "codename": "change_tickettypes"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete Typ Ticketu",
+        "content_type": 9,
+        "codename": "delete_tickettypes"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view Typ Ticketu",
+        "content_type": 9,
+        "codename": "view_tickettypes"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add Priorytet Ticketu",
+        "content_type": 10,
+        "codename": "add_ticketspriority"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change Priorytet Ticketu",
+        "content_type": 10,
+        "codename": "change_ticketspriority"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete Priorytet Ticketu",
+        "content_type": 10,
+        "codename": "delete_ticketspriority"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view Priorytet Ticketu",
+        "content_type": 10,
+        "codename": "view_ticketspriority"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add Status Ticketu",
+        "content_type": 11,
+        "codename": "add_ticketsstatus"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change Status Ticketu",
+        "content_type": 11,
+        "codename": "change_ticketsstatus"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete Status Ticketu",
+        "content_type": 11,
+        "codename": "delete_ticketsstatus"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view Status Ticketu",
+        "content_type": 11,
+        "codename": "view_ticketsstatus"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add Ticket",
+        "content_type": 12,
+        "codename": "add_tickets"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change Ticket",
+        "content_type": 12,
+        "codename": "change_tickets"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete Ticket",
+        "content_type": 12,
+        "codename": "delete_tickets"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view Ticket",
+        "content_type": 12,
+        "codename": "view_tickets"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add Historia Ticketu",
+        "content_type": 13,
+        "codename": "add_ticketshistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change Historia Ticketu",
+        "content_type": 13,
+        "codename": "change_ticketshistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete Historia Ticketu",
+        "content_type": 13,
+        "codename": "delete_ticketshistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view Historia Ticketu",
+        "content_type": 13,
+        "codename": "view_ticketshistory"
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "IT",
+        "permissions": []
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+        "name": "USERS",
+        "permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$zAdWsgyvZvRNvihuYeF7TW$YT26HmKs8shenWZY0h0UL73ksYcllfgoEx1+2WVXnd4=",
+        "last_login": "2022-11-26T17:05:35Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Admin",
+        "last_name": "Admin",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-11-26T17:05:28Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$rUOWOIY8wAabjpWIgvPcwr$3I0qNZWSsmSBnbMjY1+S9bNMYh1z7Z8wm4xyxnfTDrw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jan",
+        "first_name": "Jan",
+        "last_name": "Nowak",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-11-26T17:10:16Z",
+        "groups": [
+            2
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$tobLjy1yOhwVxyflKblgKU$E/eji6SkI9SbeDqcMXLVYxwKcMJ3mS3ErUXpsEOoV1c=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tadeusz",
+        "first_name": "Tadeusz",
+        "last_name": "Nowak",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-11-26T17:25:52Z",
+        "groups": [
+            2
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$E84qzsr5UhaHgUVRJ2mYnW$X1gKmMWBO1oXgSAZ1CYhDIaRPVbAdBLt+YFLnZw/zC4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "pawel",
+        "first_name": "Paweł",
+        "last_name": "Małecki",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-11-26T17:26:11Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "authtoken",
+        "model": "token"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "authtoken",
+        "model": "tokenproxy"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "DICTIONARY",
+        "model": "tickettypes"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "DICTIONARY",
+        "model": "ticketspriority"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "DICTIONARY",
+        "model": "ticketsstatus"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "SERVICEDESK",
+        "model": "tickets"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "SERVICEDESK",
+        "model": "ticketshistory"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "70dz9y5kcj8oqlwzxqsqqp900scaebrm",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-xJ9Q0ucM1np3wQFkS3FSIe4OkVJA-2bmvUSCbS1p67ykmcRZaHH63TLgg-sO6A711iS2ui5zlrsiD9rl1Iifl8P9OyjQy7e2Jmo2w8jZqMBZ2VEF7RG1scjgPJGKbBC8jgTAbnBXUD4E5z0hsRXvD9PeN_I:1oyycR:UGD0ypbd2dOdMrs_odL9wMbT3ZH9a1l3SWbro0JysJI",
+        "expire_date": "2022-12-10T17:05:35.043Z"
+    }
+},
+{
+    "model": "DICTIONARY.tickettypes",
+    "pk": 1,
+    "fields": {
+        "type_name": "Incydent"
+    }
+},
+{
+    "model": "DICTIONARY.tickettypes",
+    "pk": 2,
+    "fields": {
+        "type_name": "Zmiana"
+    }
+},
+{
+    "model": "DICTIONARY.ticketspriority",
+    "pk": 1,
+    "fields": {
+        "priority_name": "Niski"
+    }
+},
+{
+    "model": "DICTIONARY.ticketspriority",
+    "pk": 2,
+    "fields": {
+        "priority_name": "Średni"
+    }
+},
+{
+    "model": "DICTIONARY.ticketspriority",
+    "pk": 3,
+    "fields": {
+        "priority_name": "Wysoki"
+    }
+},
+{
+    "model": "DICTIONARY.ticketsstatus",
+    "pk": 1,
+    "fields": {
+        "status_name": "Nowy"
+    }
+},
+{
+    "model": "DICTIONARY.ticketsstatus",
+    "pk": 2,
+    "fields": {
+        "status_name": "W trakcie"
+    }
+},
+{
+    "model": "DICTIONARY.ticketsstatus",
+    "pk": 3,
+    "fields": {
+        "status_name": "Oczekiwanie na odpowiedź"
+    }
+},
+{
+    "model": "DICTIONARY.ticketsstatus",
+    "pk": 4,
+    "fields": {
+        "status_name": "Zamknięty"
+    }
+},
+{
+    "model": "SERVICEDESK.tickets",
+    "pk": 1,
+    "fields": {
+        "short_description": "Uszkodzony monitor",
+        "description": "rozbity ekran",
+        "created_user": 2,
+        "assigned_user": 4,
+        "create_date": "2022-11-26T17:26:51.714Z",
+        "end_date": "2022-11-26T17:28:20.085Z",
+        "priority": 1,
+        "status": 4,
+        "ticket_type": 1
+    }
+},
+{
+    "model": "SERVICEDESK.tickets",
+    "pk": 2,
+    "fields": {
+        "short_description": "zalana klawiatura",
+        "description": "zalana klawiatura",
+        "created_user": 3,
+        "assigned_user": 4,
+        "create_date": "2022-11-26T17:27:12.810Z",
+        "end_date": null,
+        "priority": 2,
+        "status": 2,
+        "ticket_type": 1
+    }
+},
+{
+    "model": "SERVICEDESK.tickets",
+    "pk": 3,
+    "fields": {
+        "short_description": "uszkodzony port usb",
+        "description": "uszkodzony port usb",
+        "created_user": 2,
+        "assigned_user": 4,
+        "create_date": "2022-11-26T17:27:32.241Z",
+        "end_date": null,
+        "priority": 3,
+        "status": 2,
+        "ticket_type": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 1,
+    "fields": {
+        "ticket": 3,
+        "comment": "test",
+        "create_date": "2022-11-26T17:27:45.982Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 2,
+    "fields": {
+        "ticket": 3,
+        "comment": "test",
+        "create_date": "2022-11-26T17:27:48.574Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 3,
+    "fields": {
+        "ticket": 3,
+        "comment": "test",
+        "create_date": "2022-11-26T17:27:50.287Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 4,
+    "fields": {
+        "ticket": 2,
+        "comment": "test",
+        "create_date": "2022-11-26T17:28:03.597Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 5,
+    "fields": {
+        "ticket": 2,
+        "comment": "test",
+        "create_date": "2022-11-26T17:28:05.188Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 6,
+    "fields": {
+        "ticket": 1,
+        "comment": "test",
+        "create_date": "2022-11-26T17:28:13.419Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 7,
+    "fields": {
+        "ticket": 1,
+        "comment": "test",
+        "create_date": "2022-11-26T17:28:15.089Z",
+        "created_user": 1
+    }
+},
+{
+    "model": "SERVICEDESK.ticketshistory",
+    "pk": 8,
+    "fields": {
+        "ticket": 1,
+        "comment": "test",
+        "create_date": "2022-11-26T17:28:16.534Z",
+        "created_user": 1
+    }
+}
+]
