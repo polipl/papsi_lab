@@ -102,7 +102,6 @@ class TicketDetails(View):
             name="USERS"
         ):
             return redirect("SERVICEDESK:ticket_created_by_user_list")
-        # ticket_history = TicketsHistory.objects.filter(ticket=ticket_id).order_by("-pk")
         form = CreateTicketHistoryForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
@@ -110,8 +109,6 @@ class TicketDetails(View):
             post.created_user = request.user
             post.save()
             form = CreateTicketHistoryForm()
-        # context = {"ticket": ticket, "ticket_history": ticket_history, "form": form}
-        # return render(request, 'SERVICEDESK/ticket_details.html', context)
         return redirect("SERVICEDESK:ticket_details", ticket_id)
 
 

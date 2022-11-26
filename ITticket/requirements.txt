@@ -8,6 +8,7 @@ gunicorn
 docutils
 black
 flake8
+psycopg2
 
 
 

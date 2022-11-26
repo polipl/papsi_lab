@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,14 +87,25 @@ WSGI_APPLICATION = "ITticket.wsgi.application"
 #     }
 # }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "ITticket",
+#         "USER": "root",
+#         "PASSWORD": "adminsql123q",
+#         "HOST": "papsi_lab_mariadb_1",
+#         "PORT": "3306",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "ITticket",
-        "USER": "root",
-        "PASSWORD": "adminsql123q",
-        "HOST": "papsi_lab_mariadb_1",
-        "PORT": "3306",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'itticket',
+        'USER': 'itticket',
+        'PASSWORD': 'adminsql123q',
+        'HOST': 'papsi_lab_postgres_1',
+        'PORT': '5432',
     }
 }
 # Password validation
