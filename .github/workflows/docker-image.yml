@@ -24,7 +24,7 @@ jobs:
         platform: x64
     -
       name: Install libpq-dev
-      run: apt-get -y install libpq-dev
+      run: sudo apt-get -y install libpq-dev
     - 
       name: Install requirements
       run: pip install -r requirements.txt
