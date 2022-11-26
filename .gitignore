@@ -143,4 +143,5 @@ dmypy.json
 *.vsix
 *.code-workspace
 files/postgres/
+files/mysqldb/
 
