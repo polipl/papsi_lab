@@ -35,7 +35,6 @@ services:
       - ./files/postgres:/var/lib/postgresql/data
     networks:
       - itticketnet
-
   pgadmin4:
     image: dpage/pgadmin4
     container_name: papsi_lab_pgadmin4_1
