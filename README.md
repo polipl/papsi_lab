@@ -1,7 +1,7 @@
 # Simple IT Ticket application
 env:
 - django application docker container <br />
-- mariadb docker container <br />
+- postgresql docker container <br />
 <br />
 build and run cmd:<br />
 
