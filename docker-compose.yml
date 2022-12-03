@@ -4,26 +4,26 @@ networks:
   itticketnet:
 
 services:
-  mariadb:
-    image: mariadb:latest
-    container_name: papsi_lab_mariadb_1
-    ports: 
-      - "3306:3306"
-    expose:
-      - 3306
-    environment:
-      - MARIADB_ROOT_PASSWORD=adminsql123q
-      - MARIADB_USER=root
-    volumes:
-      - "./files/mysqldb:/var/lib/mysql"
-    networks:
-      - itticketnet
-    healthcheck:
-      test: "mysqladmin ping -h localhost --user=$$MARIADB_USER --password=$$MARIADB_ROOT_PASSWORD"
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
+  # mariadb:
+  #   image: mariadb:latest
+  #   container_name: papsi_lab_mariadb_1
+  #   ports: 
+  #     - "3306:3306"
+  #   expose:
+  #     - 3306
+  #   environment:
+  #     - MARIADB_ROOT_PASSWORD=adminsql123q
+  #     - MARIADB_USER=root
+  #   volumes:
+  #     - "./files/mysqldb:/var/lib/mysql"
+  #   networks:
+  #     - itticketnet
+  #   healthcheck:
+  #     test: "mysqladmin ping -h localhost --user=$$MARIADB_USER --password=$$MARIADB_ROOT_PASSWORD"
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 5
+  #     start_period: 10s
 
   postgres:
     image: postgres
@@ -35,6 +35,12 @@ services:
       - ./files/postgres:/var/lib/postgresql/data
     networks:
       - itticketnet
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
   pgadmin4:
     image: dpage/pgadmin4
     container_name: papsi_lab_pgadmin4_1
@@ -45,7 +51,7 @@ services:
       - "8080:80"
     networks:
       - itticketnet
-
+  
   itticket:
     build: .
     #image: polipl/itticket:latest
@@ -64,16 +70,9 @@ services:
       #- "./files/conf/nginx:/etc/nginx"
     networks:
       - itticketnet
-    environment:
-      - MARIADB_ROOT_PASSWORD=adminsql123q
-      - MARIADB_USER=root
     depends_on:
-      mariadb:
+      postgres:
         condition: service_healthy
-    
-    links:
-      - mariadb
-   
     
 
     
