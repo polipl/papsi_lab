@@ -1,5 +1,5 @@
 #!/bin/sh
 docker-compose stop
-echo y | docker system prune -a
+docker system prune -a -f
 rm -fr files/postgres
 
