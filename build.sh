@@ -1,4 +1,4 @@
-#1/bin/sh
+#!/bin/sh
 docker-compose up -d
 
 docker cp files/dump-pgsql.sql papsi_lab_postgres_1:/
