@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -100,11 +101,11 @@ WSGI_APPLICATION = "ITticket.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'itticket',
-        'USER': 'itticket',
-        'PASSWORD': 'adminsql123q',
-        'HOST': 'papsi_lab_postgres_1',
-        'PORT': '5432',
+        'NAME': os.environ.get('DBNAME', 'itticket'),
+        'USER': os.environ.get('DBUSER', 'itticket'),
+        'PASSWORD': os.environ.get('DBPASSWORD', 'adminsql123q'),
+        'HOST': os.environ.get('DBHOST', 'papsi_lab_postgres_1'),
+        'PORT': os.environ.get('DBPORT', '5432'),
     }
 }
 # Password validation
