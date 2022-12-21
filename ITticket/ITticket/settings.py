@@ -99,13 +99,13 @@ WSGI_APPLICATION = "ITticket.wsgi.application"
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DBNAME', 'itticket'),
-        'USER': os.environ.get('DBUSER', 'itticket'),
-        'PASSWORD': os.environ.get('DBPASSWORD', 'adminsql123q'),
-        'HOST': os.environ.get('DBHOST', 'papsi_lab_postgres_1'),
-        'PORT': os.environ.get('DBPORT', '5432'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("DBNAME", "itticket"),
+        "USER": os.environ.get("DBUSER", "itticket"),
+        "PASSWORD": os.environ.get("DBPASSWORD", "adminsql123q"),
+        "HOST": os.environ.get("DBHOST", "papsi_lab_postgres_1"),
+        "PORT": os.environ.get("DBPORT", "5432"),
     }
 }
 # Password validation
