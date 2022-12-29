@@ -54,3 +54,4 @@ jobs:
     -
       name: Docker hub logout
       run: docker logout
+    
