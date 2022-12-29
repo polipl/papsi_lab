@@ -51,6 +51,22 @@ jobs:
     - 
       name: Push image to dockerhub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+
+
+    - name: Build minimal
+      uses: docker/build-push-action@v2.3.0
+      with:
+        build-args: ARCH=arm32v6 ARCH=arm32v7 ARCH=amd64
+        file: Dockerfile
+        platforms: linux/arm64,linux/arm/v7,linux/arm/v6
+    - 
+      name: Tags
+      run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+    - 
+      name: Push image to dockerhub
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+
+
     # - 
     #   name: Build docker image arm for MAC M1
     #   run: docker buildx build --platform linux/arm/v7 -t itticket .
