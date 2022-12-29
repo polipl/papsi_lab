@@ -8,6 +8,23 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 
 --
+-- Drop databases (except postgres and template1)
+--
+
+DROP DATABASE itticket;
+
+
+
+
+--
+-- Drop roles
+--
+
+DROP ROLE itticket;
+DROP ROLE postgres;
+
+
+--
 -- Roles
 --
 
@@ -43,8 +60,6 @@ ALTER ROLE itticket SET "TimeZone" TO 'UTC';
 -- Database "template1" dump
 --
 
-\connect template1
-
 --
 -- PostgreSQL database dump
 --
@@ -62,6 +77,65 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
+
+UPDATE pg_catalog.pg_database SET datistemplate = false WHERE datname = 'template1';
+DROP DATABASE template1;
+--
+-- Name: template1; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
+
+
+ALTER DATABASE template1 OWNER TO postgres;
+
+\connect template1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: DATABASE template1; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE template1 IS 'default template for new databases';
+
+
+--
+-- Name: template1; Type: DATABASE PROPERTIES; Schema: -; Owner: postgres
+--
+
+ALTER DATABASE template1 IS_TEMPLATE = true;
+
+
+\connect template1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: DATABASE template1; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
+GRANT CONNECT ON DATABASE template1 TO PUBLIC;
+
 
 --
 -- PostgreSQL database dump complete
@@ -683,10 +757,10 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$390000$zAdWsgyvZvRNvihuYeF7TW$YT26HmKs8shenWZY0h0UL73ksYcllfgoEx1+2WVXnd4=	2022-11-26 17:05:35+00	t	admin	Admin	Admin		t	t	2022-11-26 17:05:28+00
-2	pbkdf2_sha256$390000$rUOWOIY8wAabjpWIgvPcwr$3I0qNZWSsmSBnbMjY1+S9bNMYh1z7Z8wm4xyxnfTDrw=	\N	f	jan	Jan	Nowak		f	t	2022-11-26 17:10:16+00
-3	pbkdf2_sha256$390000$tobLjy1yOhwVxyflKblgKU$E/eji6SkI9SbeDqcMXLVYxwKcMJ3mS3ErUXpsEOoV1c=	\N	f	tadeusz	Tadeusz	Nowak		f	t	2022-11-26 17:25:52+00
-4	pbkdf2_sha256$390000$E84qzsr5UhaHgUVRJ2mYnW$X1gKmMWBO1oXgSAZ1CYhDIaRPVbAdBLt+YFLnZw/zC4=	\N	f	pawel	Paweł	Małecki		f	t	2022-11-26 17:26:11+00
+1	pbkdf2_sha256$390000$zAdWsgyvZvRNvihuYeF7TW$YT26HmKs8shenWZY0h0UL73ksYcllfgoEx1+2WVXnd4=	2022-12-29 15:10:00.438299+00	t	admin	Admin	Admin		t	t	2022-11-26 17:05:28+00
+2	pbkdf2_sha256$390000$tgihpti7TCzC0OGO3euaUg$vdFctbsqh3ZNrzQOnHkwRGwDzWufDBEr3uTXg8j9CDM=	\N	f	jan	Jan	Nowak		f	t	2022-11-26 17:10:16+00
+4	pbkdf2_sha256$390000$pmXo1lrzm5unZCHXEoCTqM$hshFmNhoh04YWqI637dvdg4rerFdRjl2EGLRp+gesm8=	\N	f	pawel	Paweł	Małecki		f	t	2022-11-26 17:26:11+00
+3	pbkdf2_sha256$390000$pH9Zuw4At5pM61snmOZUuH$tmmy5t50+kHenTfOyde6kSRgJWJmoJBSjNSiBa5xvZE=	\N	f	tadeusz	Tadeusz	Nowak		f	t	2022-11-26 17:25:52+00
 \.
 
 
@@ -744,6 +818,10 @@ COPY public.django_admin_log (id, action_time, object_id, object_repr, action_fl
 19	2022-11-26 17:26:02.369+00	3	Tadeusz Nowak	2	[{"changed": {"fields": ["First name", "Last name", "Groups"]}}]	4	1
 20	2022-11-26 17:26:11.765+00	4	 	1	[{"added": {}}]	4	1
 21	2022-11-26 17:26:22.877+00	4	Paweł Małecki	2	[{"changed": {"fields": ["First name", "Last name", "Groups"]}}]	4	1
+22	2022-12-29 15:11:04.45414+00	2	Jan Nowak	2	[{"changed": {"fields": ["password"]}}]	4	1
+23	2022-12-29 15:11:25.37812+00	2	Jan Nowak	2	[{"changed": {"fields": ["password"]}}]	4	1
+24	2022-12-29 15:11:34.011648+00	4	Paweł Małecki	2	[{"changed": {"fields": ["password"]}}]	4	1
+25	2022-12-29 15:11:42.101139+00	3	Tadeusz Nowak	2	[{"changed": {"fields": ["password"]}}]	4	1
 \.
 
 
@@ -819,6 +897,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 70dz9y5kcj8oqlwzxqsqqp900scaebrm	.eJxVjDsOwjAQBe_iGln-xJ9Q0ucM1np3wQFkS3FSIe4OkVJA-2bmvUSCbS1p67ykmcRZaHH63TLgg-sO6A711iS2ui5zlrsiD9rl1Iifl8P9OyjQy7e2Jmo2w8jZqMBZ2VEF7RG1scjgPJGKbBC8jgTAbnBXUD4E5z0hsRXvD9PeN_I:1oyycR:UGD0ypbd2dOdMrs_odL9wMbT3ZH9a1l3SWbro0JysJI	2022-12-10 17:05:35.043+00
+5e02s6abtgl3k2x3m6jbihq1mswnjjpd	.eJxVjDsOwjAQBe_iGln-xJ9Q0ucM1np3wQFkS3FSIe4OkVJA-2bmvUSCbS1p67ykmcRZaHH63TLgg-sO6A711iS2ui5zlrsiD9rl1Iifl8P9OyjQy7e2Jmo2w8jZqMBZ2VEF7RG1scjgPJGKbBC8jgTAbnBXUD4E5z0hsRXvD9PeN_I:1pAuZK:5KjOqVm3owzMv2ErXGul6xp4ytD14XfMJ3mPkqZURkA	2023-01-12 15:11:42.10786+00
 \.
 
 
@@ -903,7 +982,7 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: itticket
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 21, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 25, true);
 
 
 --
@@ -1417,8 +1496,6 @@ GRANT ALL ON SCHEMA public TO itticket;
 -- Database "postgres" dump
 --
 
-\connect postgres
-
 --
 -- PostgreSQL database dump
 --
@@ -1436,6 +1513,36 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
+
+DROP DATABASE postgres;
+--
+-- Name: postgres; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
+
+
+ALTER DATABASE postgres OWNER TO postgres;
+
+\connect postgres
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE postgres IS 'default administrative connection database';
+
 
 --
 -- PostgreSQL database dump complete
