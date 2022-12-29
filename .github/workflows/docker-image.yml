@@ -28,7 +28,7 @@ jobs:
       working-directory: ITticket
     - 
       name: Check Lint
-      run: flake8 . --ignore E501
+      run: flake8 . --ignore E501,W503
       working-directory: ITticket
 
 
