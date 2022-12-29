@@ -1,16 +1,16 @@
 FROM python:3.10-slim
 COPY ./ITticket/requirements.txt requirements.txt
-RUN ["apt-get", "update"]
-RUN ["/usr/bin/update-alternatives", "--install", "/usr/bin/python3", "python", "/usr/local/bin/python3.10", "0"]
-RUN ["apt-get", "-y", "install","libmariadb-dev", "gcc", "nginx", "supervisor", "mc", "procps", "libpq-dev"]
-RUN ["pip", "install", "-r", "/requirements.txt"]
+# RUN ["apt-get", "update"]
+# RUN ["/usr/bin/update-alternatives", "--install", "/usr/bin/python3", "python", "/usr/local/bin/python3.10", "0"]
+RUN apt-get update && apt-get -y install \
+    gcc \
+    mc \
+    procps \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ["pip3", "install", "-r", "/requirements.txt"]
 COPY ./ITticket /ITticket
-COPY ./files/conf/supervisor /etc/supervisor
-#COPY ./files/conf/nginx /etc/nginx
-COPY ./files/conf/nginx/sites-available/default /etc/nginx/sites-available/default
-EXPOSE 8000 80 443
+EXPOSE 8000
 WORKDIR "/ITticket"
-#ENTRYPOINT ["python","manage.py","runserver","0.0.0.0:8000" ]
-#ENTRYPOINT [ "/usr/local/bin/gunicorn", "ITticket.wsgi:application", "-b", "0.0.0.0:8000" ]
-#CMD [ "tail", "-f", "/dev/null" ]
-ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf" ] 
+ENTRYPOINT [ "/usr/local/bin/gunicorn", "ITticket.wsgi:application", "-b", "0.0.0.0:8000" ]
