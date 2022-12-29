@@ -66,7 +66,7 @@ class TicketsAssignedList(View):
 @method_decorator(login_required, name="dispatch")
 class TicketsCreatedByUserList(View):
     """
-    Widok wyświetla wszystkie tickety utworzone do zalogowanego użytkownika
+    Widok wyświetla wszystkie tickety utworzone przez zalogowanego użytkownika
 
     :template:`SERVICEDESK/tickets_list.html`
     """
