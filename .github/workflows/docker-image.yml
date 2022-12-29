@@ -2,7 +2,7 @@ name: IT Ticket Docker Image Deploy
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: [ "main" ]
 
 jobs:
   lint-flake8:
@@ -51,31 +51,6 @@ jobs:
     - 
       name: Push image to dockerhub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
-
-
-    - name: Build minimal
-      uses: docker/setup-qemu-action@v2
-      with:
-        build-args: ARCH=arm32v6 ARCH=arm32v7 ARCH=amd64
-        file: Dockerfile
-        platforms: linux/arm64,linux/arm/v7,linux/arm/v8
-    -
-      name: Build and push
-      uses: docker/build-push-action@v3
-      with:
-        context: .
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/itticket1:latest
- 
-
-    # - 
-    #   name: Build docker image arm for MAC M1
-    #   run: docker buildx build --platform linux/arm/v7 -t itticket .
-    # - 
-    #   name: Tags for arm
-    #   run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
-
-
     -
       name: Docker hub logout
       run: docker logout
