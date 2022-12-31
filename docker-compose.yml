@@ -37,7 +37,6 @@ services:
       - 8000
     volumes:
       - "./ITticket/:/ITticket"
-      - "./files/conf/supervisor:/etc/supervisor"
     networks:
       - itticketnet
     depends_on:
