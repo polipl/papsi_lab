@@ -6,6 +6,8 @@ docutils
 black
 flake8
 psycopg2
+whitenoise
+
 
 
 

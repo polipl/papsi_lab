@@ -27,7 +27,7 @@ jobs:
     #   run: pip install -r requirements.txt
     #   working-directory: ITticket
     - name: install black,flake8
-      run: apt-get -y install flake8 black
+      run: sudo apt-get -y install flake8 black
     - name: black
       run: black .
       working-directory: ITticket
@@ -49,16 +49,18 @@ jobs:
       run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
     - name: buildx create
       run: docker buildx create --use --name=multiarch --driver docker-container
+    - name: docker run
+      run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes --credential yes
     -
       name: Build docker image
       # run: docker build -t itticket .
-      run: docker buildx build --platform linux/386,linux/amd64,linux/arm64/v8 -t $IMAGE_TAG .
-    - 
-      name: Tags
-      run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
-    - 
-      name: Push image to dockerhub
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+      run: docker buildx build --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8 -t ${{ secrets.DOCKERHUB_USERNAME }}/itticket --push .
+    # - 
+    #   name: Tags
+    #   run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+    # - 
+    #   name: Push image to dockerhub
+    #   run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
     -
       name: Docker hub logout
       run: docker logout
