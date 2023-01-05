@@ -52,13 +52,13 @@ jobs:
     -
       name: Build docker image
       # run: docker build -t itticket .
-      run: docker buildx build --platform linux/386,linux/amd64,linux/arm64/v8 -t $IMAGE_TAG .
-    - 
-      name: Tags
-      run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
-    - 
-      name: Push image to dockerhub
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+      run: docker buildx build --platform linux/386,linux/amd64,linux/arm64/v8 -t ${{ secrets.DOCKERHUB_USERNAME }}/itticket .
+    # - 
+    #   name: Tags
+    #   run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
+    # - 
+    #   name: Push image to dockerhub
+    #   run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/itticket
     -
       name: Docker hub logout
       run: docker logout
