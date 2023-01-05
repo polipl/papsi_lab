@@ -2,7 +2,7 @@ name: IT Ticket Docker Image Deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev"]
 
 jobs:
   lint-flake8:
@@ -27,7 +27,7 @@ jobs:
     #   run: pip install -r requirements.txt
     #   working-directory: ITticket
     - name: install black,flake8
-      run: apt-get -y install flake8 black
+      run: sudo apt-get -y install flake8 black
     - name: black
       run: black .
       working-directory: ITticket
