@@ -26,6 +26,11 @@ jobs:
     #   name: Install requirements
     #   run: pip install -r requirements.txt
     #   working-directory: ITticket
+    - name: install black,flake8
+      run: apt-get -y install flake8 black
+    - name: black
+      run: black .
+      working-directory: ITticket
     - 
       name: Check Lint
       run: flake8 . --ignore E501,W503
