@@ -2,7 +2,7 @@ name: IT Ticket Docker Image Deploy
 
 on:
   push:
-    branches: [ "main", "dev"]
+    branches: [ "main" ]
 
 jobs:
   lint-flake8:
