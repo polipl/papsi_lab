@@ -1,5 +1,5 @@
 #!/bin/sh
-docker compose -f docker-compose-dev.yml up -d
+docker compose -f docker-compose.yml up -d
 docker exec -i papsi_lab_postgres_1 psql -U postgres -c "CREATE DATABASE itticket"
 docker exec -i papsi_lab_postgres_1 psql -U postgres -c "CREATE USER itticket WITH PASSWORD 'adminsql123q'"
 docker exec -i papsi_lab_postgres_1 psql itticket -U postgres -c "ALTER ROLE itticket SET client_encoding TO 'utf8'"
