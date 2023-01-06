@@ -53,9 +53,10 @@ jobs:
 
     - name: buildx create
       run: docker buildx create --use --name=multiarch --driver docker-container
+
     - name: Build docker image
       # run: docker build -t itticket .
-      run: docker buildx build --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8 --output type=image -t ${{ secrets.DOCKERHUB_USERNAME }}/itticket --push .
+      run: docker buildx build --platform linux/amd64,linux/386,linux/arm/v6,linux/arm/v7,linux/arm64/v8 --output type=image -t ${{ secrets.DOCKERHUB_USERNAME }}/itticket --push .
     # - 
     #   name: Tags
     #   run: docker tag itticket ${{ secrets.DOCKERHUB_USERNAME }}/itticket
